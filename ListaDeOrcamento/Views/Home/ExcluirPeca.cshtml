@@ -1,0 +1,38 @@
+﻿@model ListaDeOrcamento.Models.Peca
+@{
+    ViewBag.Title = "ExcluirPeca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Excluir Peca</h1>
+
+<h2>Tem Certeza que deseja excluir a peça? </h2>
+<table class="table table-striped" style="margin-top: 40px">
+    <thead>
+        <tr>
+            <th class="text-center">CODPECA</th>
+            <th class="text-center">NOME  </th>
+            <th class="text-center">DESCRICAO  </th>
+            <th class="text-center">OPCÕES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+                
+            <td>@Model.CodPeca</td>
+            <td>@Model.Nome</td>
+            <td>@Model.Descricao</td>
+            <td><a href="/Home/ExcluirUmaPeca?id=@Model.CodPeca" class="btn btn-primary">Confirmar</a></td>
+            <td><a href="/Home" class="btn btn-danger">Cancelar</a></td>
+
+
+
+        </tr>
+
+    </tbody>
+
+    
+</table>
+<h2>@ViewBag.Message</h2>
+<a class="btn btn-primary" href="/Home/Index">Voltar</a>
+

@@ -1,0 +1,58 @@
+﻿@model List<ListaDeOrcamento.Models.Peca>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <div class=" teste">
+            <br /><br />
+
+
+
+            @foreach (var item in Model)
+            {
+
+                <p>@item.CodPeca;</p>
+                <p>@item.Nome;</p>
+                <p>@item.Descricao;</p>
+            }
+
+
+
+            <br /><br />
+
+        </div>
+
+
+    </div>*@
+
+<div class="row">
+    <table class="table table-striped" style="margin-top: 40px">
+        <thead>
+            <tr>
+                <th class="text-center">CODPECA</th>
+                <th class="text-center">NOME  </th>
+                <th class="text-center">DESCRICAO  </th>
+                <th class="text-center">OPCÕES</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                    
+                <td class="text-center">@item.CodPeca</td>
+                <td class="text-center">@item.Nome</td>
+                <td class="text-center">@item.Descricao</td>
+                <td class="text-center"><a href="/Home/EditarPeca?peca=@item.CodPeca" class="btn btn-primary">Alterar</a></td>
+                <td class="text-center"><a href="/Home/ExcluirPeca?peca=@item.CodPeca" class="btn btn-danger">Excluir</a></td>
+                
+            </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Home/NewPeca"class="btn btn-default"> + Nova peça</a>
+</div>
+

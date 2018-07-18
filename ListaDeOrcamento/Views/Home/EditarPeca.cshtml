@@ -1,0 +1,36 @@
+﻿@model ListaDeOrcamento.Models.Peca
+@{
+    ViewBag.Title = "EditarPeca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Peca</h1>
+<h2>Digite a alteração para a peça = @Model.Nome </h2>
+<table class="table table-striped" style="margin-top: 40px">
+    <thead>
+        <tr>
+            <th class="text-center">NOME  </th>
+            <th class="text-center">DESCRICÃO  </th>
+            <th class="text-center">OPÇÕES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <form action="/Home/EditarUmaPeca">
+                @Html.HiddenFor(x => Model.CodPeca)
+                <td class="text-center">@Html.TextBoxFor(x => x.Nome)</td>
+                <td class="text-center">@Html.TextBoxFor(x => x.Descricao)</td>
+                <td class="text-center"><button type="submit" class="btn btn-primary">Confirmar</></td>
+                <td class="text-center"><a href="/Home" class="btn btn-danger">Cancelar</a></td>
+            </form>
+
+
+        </tr>
+
+    </tbody>
+
+
+</table>
+<h2>@ViewBag.Message</h2>
+<a class="btn btn-primary" href="/Home/Index">Voltar</a>
+

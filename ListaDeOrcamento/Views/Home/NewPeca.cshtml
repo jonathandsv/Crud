@@ -1,0 +1,20 @@
+﻿@model ListaDeOrcamento.Models.Peca 
+@{
+    ViewBag.Title = "NewPeca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nova Peça</h2>
+<form action="/Home/InserirNewPeca">
+    <label>Código da Peça</label>
+    @Html.TextBoxFor(x => x.CodPeca)
+    <label>Nome da Peça</label>
+    @Html.TextBoxFor(x => x.Nome)
+    <label>Descrição da Peça</label>
+    @Html.TextBoxFor(x => x.Descricao)
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <p></p>
+    <h2>@ViewBag.Message</h2>
+    <a class="btn btn-primary" href="/Home/Index">Voltar</a>
+</form>
+
