@@ -43,6 +43,40 @@ namespace ListaDeOrcamento.Models
            
         }
 
+        public List<Peca> Pesquisar_varias_pecas(string nome)
+        {
+
+            //definir string de conexão com o banco de dados 
+            string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=LISTA_ORC;Integrated Security=True;MultipleActiveResultSets=True";
+
+            //Criação de um novo objeto do tipo SqlConnection object
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+
+            //Abrindo Conexão
+            sqlConn.Open();
+
+            //Define o Objeto SqlCommand e a instrução Sql
+            List<Peca> pecas = new List<Peca>();
+
+            using (SqlCommand leitor = new SqlCommand("SELECT * FROM PECAS WHERE NOME LIKE '%' + @NOME + '%';", sqlConn))
+            {
+                leitor.Parameters.Add("@NOME", SqlDbType.VarChar, 50).Value = nome;
+                SqlDataReader dr = leitor.ExecuteReader();
+                while (dr.Read())
+                {
+                    Peca peca = new Peca();
+                    peca.CodPeca = Convert.ToInt32(dr["CODPECA"]);
+                    peca.Nome = dr["NOME"].ToString();
+                    peca.Descricao = dr["DESCRICAO"].ToString();
+                    pecas.Add(peca);
+
+                }
+
+            }
+            return pecas;
+
+        }
+
         public Peca Inserir(int CODPECA, string NOME, string DESCRICAO)
         {
 

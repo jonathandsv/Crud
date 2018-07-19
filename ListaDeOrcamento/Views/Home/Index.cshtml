@@ -28,31 +28,44 @@
     </div>*@
 
 <div class="row">
-    <table class="table table-striped" style="margin-top: 40px">
-        <thead>
-            <tr>
-                <th class="text-center">CODPECA</th>
-                <th class="text-center">NOME  </th>
-                <th class="text-center">DESCRIÇÃO  </th>
-                <th class="text-center">OPÇÕES</th>
-                <th class="text-center"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                    
-                <td class="text-center">@item.CodPeca</td>
-                <td class="text-center">@item.Nome</td>
-                <td class="text-center">@item.Descricao</td>
-                <td class="text-center"><a href="/Home/EditarPeca?peca=@item.CodPeca" class="btn btn-primary">Alterar</a></td>
-                <td class="text-center"><a href="/Home/ExcluirPeca?peca=@item.CodPeca" class="btn btn-danger">Excluir</a></td>
-                
-            </tr>
-            }
-        </tbody>
-    </table>
-    <a href="/Home/NewPeca"class="btn btn-default"> + Nova peça</a>
+    <br />
+    <h2><label>Pesquisar</label></h2>
+    <p class="topo"><label>Digite o nome da peça:</label></p>
+
+    <form action="/Home/PesquisarVariasPecas">
+        <label>Nome da Peça</label>
+        <input type="text" name="nome">
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+        <p></p>
+        
+    </form>
+
+        <table class="table table-striped" style="margin-top: 40px">
+            <thead>
+                <tr>
+                    <th class="text-center">CODPECA</th>
+                    <th class="text-center">NOME  </th>
+                    <th class="text-center">DESCRIÇÃO  </th>
+                    <th class="text-center">OPÇÕES</th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td class="text-center">@item.CodPeca</td>
+                        <td class="text-center">@item.Nome</td>
+                        <td class="text-center">@item.Descricao</td>
+                        <td class="text-center"><a href="/Home/EditarPeca?peca=@item.CodPeca" class="btn btn-primary">Alterar</a></td>
+                        <td class="text-center"><a href="/Home/ExcluirPeca?peca=@item.CodPeca" class="btn btn-danger">Excluir</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="/Home/Index" class="btn btn-primary">Voltar</a> <br /><br />
+    <a href="/Home/NewPeca" class="btn btn-default"> + Nova peça</a>
 </div>
 

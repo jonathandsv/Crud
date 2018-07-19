@@ -77,6 +77,7 @@ namespace ListaDeOrcamento.Controllers
             return View("NewPeca", peca);
         }
 
+
         public ActionResult EditarUmaPeca(Peca peca)
         {
             TdPecas pecas = new TdPecas();
@@ -95,6 +96,16 @@ namespace ListaDeOrcamento.Controllers
 
 
             return View();
+        }
+
+        public ActionResult PesquisarVariasPecas(string nome)
+        {
+            TdPecas tdPecas = new TdPecas();
+            List<Peca> pc = tdPecas.Pesquisar_varias_pecas(nome);
+            
+
+
+            return View("Index", pc);
         }
 
         public ActionResult ExcluirUmaPeca(int id)
