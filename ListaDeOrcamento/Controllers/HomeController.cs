@@ -15,11 +15,7 @@ namespace ListaDeOrcamento.Controllers
             TdPecas pecas = new TdPecas();
 
             List<Peca> PecasList  = pecas.Mostrando_o_Banco();
-            //Nao precisa da ViewBag ainda 
-            //Colocando os valores dentro da ViewBag
-            //ViewBag.Pecas = PecasList;
-
-            
+    
             return View(PecasList);
 
         }
